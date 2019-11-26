@@ -1,0 +1,15 @@
+table {
+  border-collapse: 4px solid slategrey;
+}
+
+th{
+  border-bottom: 4px solid slategrey;
+}
+
+.left{
+  border-left: 4px solid slategrey;
+}
+
+th,td{
+  border-bottom: 4px solid slategrey;
+}

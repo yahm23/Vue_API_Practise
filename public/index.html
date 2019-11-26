@@ -13,7 +13,7 @@
       <h2>Exchange Rates</h2>
       <!-- <ul>
         <li v-for ='(rate,key,index) in exchangeRates'>
-          {{key}}--{{rate}}
+          {{key}}{{rate}}
         </li>
       </ul> -->
 
@@ -30,22 +30,38 @@
 
     </table>
 
-    <form v-on:submit.prevent>
+    <form v-on:submit.prevent = "findCode">
       <label for="converto">Convert From Euros to Selected Currency</label>
       <input type="number" v-model="euroAmount" >
 
-      <select name = "dropdown" v-model= "conversionCode">
+      <select name = "dropdown" v-model= "conversionCodeString">
          <option v-for ='(rate,key,index) in exchangeRates' >{{key}}</option>
          <!-- v-model='conversionCode' -->
       </select>
       <input type="submit" name="" value="Convert">
     </form>
 
-    <div>This many is {{euroAmount}} euros    </div>
-    <div>{{rate}} euros    </div>
+    <div>{{euroAmount}} Euros is equal to {{convert}}{{conversionCodeString}}</div>
 
-      <p>{{exchangeRates}}</p>
-      <p>{{allData}}</p>
+    <br>
+    <br>
+    
+    <form v-on:submit.prevent = "findCode">
+      <label for="converto">Convert</label>
+      <input type="number" v-model="otherCurrencyAmount" >
+
+      <select name = "dropdown" v-model= "conversionCodeString2">
+         <option v-for ='(rate,key,index) in exchangeRates' >{{key}}</option>
+         <!-- v-model='conversionCode' -->
+      </select>
+       to Euros
+      <input type="submit" name="" value="Convert">
+    </form>
+
+      <div>{{otherCurrencyAmount}} {{conversionCodeString2}} is equal to {{convertTwo}} Euros is equal to </div>
+
+
+
     </div>
 
   </body>
